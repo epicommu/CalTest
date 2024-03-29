@@ -16,18 +16,18 @@ document.addEventListener('DOMContentLoaded', function() {
         const totalPrincipalValue = annualContribution * contributionPeriod;
         let finalAmountValue = 0;
         let investmentReturnRate = 0;
-
+    
         investmentOptions.forEach(option => {
             if(option.checked) {
                 investmentReturnRate = parseInt(option.value, 10) / 100;
-                // 최종 금액 계산 공식 업데이트
-                finalAmountValue = totalPrincipalValue * Math.pow((1 + investmentReturnRate), contributionPeriod);
+                // 올바른 최종 금액 계산 공식 적용
+                finalAmountValue = annualContribution * ((Math.pow(1 + investmentReturnRate, contributionPeriod) - 1) / investmentReturnRate);
             }
         });
-
+    
         const totalReturns = finalAmountValue - totalPrincipalValue;
         const totalReturnRateValue = (totalReturns / totalPrincipalValue) * 100;
-
+    
         // 결과 업데이트
         totalPrincipal.textContent = totalPrincipalValue.toFixed(2) + '만원';
         finalAmount.textContent = finalAmountValue.toFixed(2) + '만원';
