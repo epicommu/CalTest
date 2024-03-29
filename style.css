@@ -18,3 +18,16 @@ div {
     margin-bottom: 10px;
 }
 
+.slider-marks {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    width: 100%;
+    margin: 10px 0;
+}
+
+.mark {
+    position: absolute;
+    write-mode: vertical-lr; /* 눈금 텍스트를 세로로 표시 */
+    transform: translateX(-50%);
+}
