@@ -1,1 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Investment Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div>
+        <label for="annualContribution">연 납입 금액:</label>
+        <input type="range" id="annualContribution" min="0" max="200" value="100">
+        <span id="annualContributionValue">100</span>
+    </div>
+    <div>
+        <label for="contributionPeriod">총 납입 기간:</label>
+        <input type="range" id="contributionPeriod" min="0" max="30" value="15">
+        <span id="contributionPeriodValue">15</span>
+    </div>
+    <div id="investmentOptions">
+        <input type="radio" id="usStocks" name="investment" value="17"><label for="usStocks">미국 주식</label>
+        <input type="radio" id="krStocks" name="investment" value="10"><label for="krStocks">한국 주식</label>
+        <input type="radio" id="dividendETF" name="investment" value="8"><label for="dividendETF">배당 ETF</label>
+        <input type="radio" id="krSavings" name="investment" value="5"><label for="krSavings">한국 예금</label>
+        <input type="radio" id="usSavings" name="investment" value="5"><label for="usSavings">미국 예금</label>
+    </div>
+    <div>
+        <p>예상 수익: <span id="expectedReturns">0</span></p>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
 
