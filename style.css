@@ -1,36 +1,56 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    max-width: 600px; /* 컨텐츠의 최대 가로 폭을 설정 */
+    margin: 0 auto; /* 페이지 중앙 정렬 */
+    padding: 20px;
+    background-color: #f5f5f5;
 }
 
-#investmentOptions {
-    margin: 20px 0;
-}
-
-#investmentOptions input[type="radio"] {
-    margin-right: 5px;
-}
-
-#investmentOptions label {
-    margin-right: 20px;
+h1 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 40px;
 }
 
 div {
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-.slider-marks {
+input[type="range"] {
+    width: 100%; /* 슬라이더 가로 범위를 div와 일치시킴 */
+}
+
+.result-highlight {
+    background-color: #4CAF50; /* 강조 색상 */
+    color: #ffffff;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 1.2em; /* 글자 크기 강조 */
+}
+
+.slider-marks, #investmentOptions {
     display: flex;
     justify-content: space-between;
-    position: relative;
-    width: calc(100% - 20px); /* 슬라이더와 같은 너비를 갖도록 조정 */
-    margin: 0 auto 10px auto; /* 슬라이더 아래에 위치하도록 조정 */
+    text-align: center;
 }
 
-.mark {
-    position: static; /* 기본 위치 설정으로 변경 */
-    display: inline-block; /* 인라인 블록 요소로 변경 */
-    width: 20%; /* 각 눈금이 차지하는 너비를 지정 */
-    text-align: center; /* 텍스트를 중앙 정렬 */
-    color: #000; /* 눈금 텍스트 색상 */
-    font-size: 0.75rem; /* 눈금 텍스트 크기 조정 */
+.mark, #investmentOptions label {
+    flex: 1;
 }
+
+#investmentOptions input[type="radio"] {
+    margin: 0 auto; /* 라디오 버튼 중앙 정렬 */
+}
+
+#investmentOptions label {
+    display: block;
+    margin: 5px auto; /* 라벨 중앙 정렬 */
+    cursor: pointer;
+}
+
