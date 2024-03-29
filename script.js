@@ -36,12 +36,12 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     annualContributionSlider.addEventListener('input', function() {
-        annualContributionValue.textContent = this.value;
+        annualContributionValue.textContent = this.value + '만원';
         calculateResults();
     });
 
     contributionPeriodSlider.addEventListener('input', function() {
-        contributionPeriodValue.textContent = this.value;
+        contributionPeriodValue.textContent = this.value + '년';
         calculateResults();
     });
 
