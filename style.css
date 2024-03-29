@@ -54,3 +54,9 @@ input[type="range"] {
     cursor: pointer;
 }
 
+/* 차트 컨테이너 스타일 */
+.chart-container {
+    width: 100%; /* 필요한 경우 조정 */
+    height: 400px; /* 차트의 높이 */
+    margin-top: 20px; /* 위 요소와의 간격 */
+}
