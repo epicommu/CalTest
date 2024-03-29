@@ -29,9 +29,9 @@ document.addEventListener('DOMContentLoaded', function() {
         const totalReturnRateValue = (totalReturns / totalPrincipalValue) * 100;
 
         // 결과 업데이트
-        totalPrincipal.textContent = totalPrincipalValue.toFixed(2);
-        finalAmount.textContent = finalAmountValue.toFixed(2);
-        expectedReturns.textContent = totalReturns.toFixed(2); // 이전 "예상 수익"은 이제 총 수익을 의미
+        totalPrincipal.textContent = totalPrincipalValue.toFixed(2) + '만원';
+        finalAmount.textContent = finalAmountValue.toFixed(2) + '만원';
+        expectedReturns.textContent = totalReturns.toFixed(2) + '만원'; // '만원' 단위 추가
         totalReturnRate.textContent = totalReturnRateValue.toFixed(2) + '%';
     }
 
