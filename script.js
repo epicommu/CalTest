@@ -2,30 +2,33 @@ document.addEventListener('DOMContentLoaded', function() {
     // 차트 초기화
     const ctx = document.getElementById('investmentChart').getContext('2d');
     const investmentChart = new Chart(ctx, {
-        type: 'bar', // 또는 'line', 'pie' 등 차트 유형 선택
+        type: 'line', // 차트 유형을 line으로 변경하여 년도별 변화를 보여줌
         data: {
-            labels: ['납입 원금', '최종 금액'],
-            datasets: [{
-                label: '금액 (만원)',
-                data: [0, 0], // 초기 데이터
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)'
-                ],
-                borderColor: [
-                    'rgba(255,99,132,1)',
-                    'rgba(54, 162, 235, 1)'
-                ],
-                borderWidth: 1
-            }]
+            labels: [], // 년도별 라벨이 들어갈 자리
+            datasets: [
+                {
+                    label: '납입 원금 (만원)',
+                    data: [], // 납입 원금 데이터
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderColor: 'rgba(255,99,132,1)',
+                    borderWidth: 1,
+                    fill: false // 선 차트 스타일
+                },
+                {
+                    label: '최종 금액 (만원)',
+                    data: [], // 최종 금액 데이터
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1,
+                    fill: false // 선 차트 스타일
+                }
+            ]
         },
         options: {
             scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero: true
-                    }
-                }]
+                y: {
+                    beginAtZero: true
+                }
             }
         }
     });
@@ -64,7 +67,18 @@ document.addEventListener('DOMContentLoaded', function() {
         totalReturnRate.textContent = totalReturnRateValue.toFixed(2) + '%';
 
         // 차트 데이터 업데이트
-        investmentChart.data.datasets[0].data = [totalPrincipalValue, finalAmountValue];
+        updateChart(annualContribution, contributionPeriod, investmentReturnRate);
+    }
+
+    // 차트 업데이트 함수 추가
+    function updateChart(annualContribution, contributionPeriod, investmentReturnRate) {
+        const years = Array.from({length: contributionPeriod}, (_, i) => (i + 1).toString() + '년');
+        const totalPrincipals = Array.from({length: contributionPeriod}, (_, i) => (annualContribution * (i + 1)));
+        const finalAmounts = totalPrincipals.map((principal, i) => Math.round(annualContribution * (((1 + investmentReturnRate) ** (i + 1) - 1) / investmentReturnRate)));
+
+        investmentChart.data.labels = years;
+        investmentChart.data.datasets[0].data = totalPrincipals;
+        investmentChart.data.datasets[1].data = finalAmounts;
         investmentChart.update();
     }
 
