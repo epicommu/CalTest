@@ -22,12 +22,15 @@ div {
     display: flex;
     justify-content: space-between;
     position: relative;
-    width: 100%;
-    margin: 10px 0;
+    width: calc(100% - 20px); /* 슬라이더와 같은 너비를 갖도록 조정 */
+    margin: 0 auto 10px auto; /* 슬라이더 아래에 위치하도록 조정 */
 }
 
 .mark {
-    position: absolute;
-    write-mode: vertical-lr; /* 눈금 텍스트를 세로로 표시 */
-    transform: translateX(-50%);
+    position: static; /* 기본 위치 설정으로 변경 */
+    display: inline-block; /* 인라인 블록 요소로 변경 */
+    width: 20%; /* 각 눈금이 차지하는 너비를 지정 */
+    text-align: center; /* 텍스트를 중앙 정렬 */
+    color: #000; /* 눈금 텍스트 색상 */
+    font-size: 0.75rem; /* 눈금 텍스트 크기 조정 */
 }
