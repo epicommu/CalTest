@@ -60,12 +60,3 @@ input[type="range"] {
     height: 400px; /* 차트의 높이 */
     margin-top: 20px; /* 위 요소와의 간격 */
 }
-
-#assetSelection, #periodSelection {
-    margin-bottom: 20px;
-}
-
-h2 {
-    color: #333;
-    margin-bottom: 10px;
-}
